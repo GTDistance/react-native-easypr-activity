@@ -1,10 +1,11 @@
 {
   "name": "react-native-easypr-activity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "android car plate recognize",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+"main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/GTDistance/react-native-easypr-activity"
