@@ -11,9 +11,11 @@ import com.facebook.react.bridge.ReactMethod;
 
 public class RecognizeModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
+    private Callback callback;
     public RecognizeModule(ReactApplicationContext reactContext) {
         super(reactContext);
         reactContext.addActivityEventListener(this);
+
     }
 
     @Override
@@ -23,10 +25,10 @@ public class RecognizeModule extends ReactContextBaseJavaModule implements Activ
 
     @ReactMethod
     public void recognize(Callback callback){
-        NativeCallback.getInstance().setCallBack(callback);
+        this.callback = callback;
         Activity currentActivity = getCurrentActivity();
         Intent intent = new Intent(currentActivity, EasyPRActivity.class);
-        currentActivity.startActivity(intent);
+        currentActivity.startActivityForResult(intent,1);
 
 
     }
@@ -34,7 +36,12 @@ public class RecognizeModule extends ReactContextBaseJavaModule implements Activ
 
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
-
+        if (requestCode ==1&&resultCode == getCurrentActivity().RESULT_OK){
+                String result = data.getStringExtra("result");
+                if (result!=null){
+                    callback.invoke(result);
+                }
+        }
     }
 
     @Override

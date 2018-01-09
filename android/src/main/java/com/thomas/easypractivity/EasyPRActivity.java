@@ -2,6 +2,7 @@ package com.thomas.easypractivity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -97,14 +98,10 @@ public class EasyPRActivity extends Activity {
                                  .show();
                         } else {
                             tvRecogResult.setText(text);
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    NativeCallback.getInstance().getCallback().invoke(text);
-                                    EasyPRActivity.this.finish();
-                                }
-                            }).start();
-
+                            Intent intent = new Intent();
+                            intent.putExtra("result",text);
+                            EasyPRActivity.this.setResult(RESULT_OK,intent);
+                            EasyPRActivity.this.finish();
                         }
                     }
                 })

@@ -1,2 +1,2 @@
-import {RecognizeModule} from 'react-native';
+import {NativeModules} from 'react-native';
 export default NativeModules.RecognizeModule;
