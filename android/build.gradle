@@ -29,9 +29,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     testCompile 'junit:junit:4.12'
     compile 'com.facebook.react:react-native:+'
-//        compile 'com.github.zcolin:zcolin_EasyPRLib:1.0.9'
+    compile 'com.github.GTDistance:android-lib-easypr:1.0.0'
     androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':libEasyPR')
 }
