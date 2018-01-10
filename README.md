@@ -1,5 +1,8 @@
-##  安装
+##  安装方式一
 `react-native install react-native-easypr-activity`
+## 安装方式二
+`npm install react-native-easypr-activity --save`
+`react-native link react-native-easypr-activity --save`
 ## 配置
 在项目的build.gradle中配置如下
 ```
